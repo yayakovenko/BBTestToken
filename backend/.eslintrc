@@ -1,0 +1,255 @@
+{
+  "extends": [
+    "airbnb-base",
+    "eslint:recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:prettier/recommended",
+    "plugin:eslint-comments/recommended"
+  ],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [
+          ".js",
+          ".ts"
+        ]
+      }
+    }
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "ignorePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "coverage/**"
+  ],
+  "plugins": [
+    "import",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "error"
+        ]
+      }
+    ],
+    "no-return-assign": "error",
+    "no-void": "error",
+    "no-debugger": "error",
+    "arrow-body-style": "off",
+    "prefer-destructuring": "off",
+    "max-classes-per-file": "off",
+    "newline-before-return": "off",
+    "prefer-template": "off",
+    "no-restricted-syntax": [
+      "error",
+      "WithStatement",
+      "BinaryExpression[operator='in']"
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 140,
+        "tabWidth": 4,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true,
+        "quoteProps": "as-needed",
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "arrowParens": "always",
+        "endOfLine": "lf"
+      },
+      {
+        "usePrettierrc": false
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        }
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/extensions": "off",
+    "import/no-cycle": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "**/*.spec.ts",
+          "**/bootstrap*.ts"
+        ]
+      }
+    ],
+    "import/no-unresolved": [
+      2,
+      {
+        "ignore": [
+          "swagger.json"
+        ]
+      }
+    ],
+    "no-useless-catch": "error",
+    "no-useless-constructor": "off",
+    "class-methods-use-this": "off",
+    "consistent-return": "off",
+    "no-await-in-loop": "off",
+    "no-shadow": "off",
+    "no-prototype-builtins": "off",
+    "eslint-comments/no-unused-disable": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.ts"
+      ],
+      "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "plugin:import/typescript"
+      ],
+      "plugins": [
+        "@typescript-eslint"
+      ],
+      "rules": {
+        "no-param-reassign": "off",
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@angular-eslint/no-empty-lifecycle-method": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ],
+        "@typescript-eslint/no-unsafe-call": "error",
+        "@typescript-eslint/no-unsafe-assignment": "error",
+        "@typescript-eslint/no-unsafe-member-access": "error",
+        "@typescript-eslint/no-unsafe-return": "error",
+        "@typescript-eslint/restrict-template-expressions": "error",
+        "@typescript-eslint/require-await": "error",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          {
+            "argsIgnorePattern": "_",
+            "destructuredArrayIgnorePattern": "_"
+          }
+        ],
+        "@typescript-eslint/explicit-function-return-type": [
+          "off",
+          {
+            "allowExpressions": true,
+            "allowTypedFunctionExpressions": true
+          }
+        ],
+        "@typescript-eslint/consistent-type-definitions": [
+          "error",
+          "interface"
+        ],
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "memberLike",
+            "format": [
+              "camelCase",
+              "UPPER_CASE",
+              "snake_case"
+            ]
+          },
+          {
+            "selector": "enumMember",
+            "format": [
+              "PascalCase",
+              "UPPER_CASE"
+            ]
+          },
+          {
+            "selector": "property",
+            "format": [
+              "camelCase",
+              "UPPER_CASE",
+              "snake_case"
+            ]
+          },
+          {
+            "selector": "variable",
+            "format": [
+              "camelCase",
+              "UPPER_CASE"
+            ]
+          },
+          {
+            "selector": "variable",
+            "filter": {
+              "regex": "^Api|^Use|Enum$|Protect$",
+              "match": true
+            },
+            "format": [
+              "camelCase",
+              "PascalCase",
+              "UPPER_CASE"
+            ]
+          },
+          {
+            "selector": "typeLike",
+            "format": [
+              "PascalCase"
+            ]
+          },
+          {
+            "selector": "function",
+            "filter": {
+              "regex": "^Is|^Use|Dto$|Factory$",
+              "match": true
+            },
+            "format": [
+              "camelCase",
+              "PascalCase"
+            ]
+          },
+          {
+            "selector": [
+              "parameter"
+            ],
+            "format": null,
+            "filter": {
+              "regex": "^_",
+              "match": true
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "**/*.spec.ts"
+      ],
+      "plugins": [
+      ],
+      "extends": [
+      ],
+      "rules": {
+        "@typescript-eslint/unbound-method": "off"
+      }
+    }
+  ]
+}
